@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { DetailComponent, TweetComponent } from './tweets';
+import { DetailComponent, FeedComponent, TweetComponent } from './tweets';
+import { ProfileBadgeComponent } from './profiles';
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -23,6 +24,20 @@ const tweetsEl = document.getElementById("tweetme-2")
 if (tweetsEl) {
     ReactDOM.render(e(TweetComponent,tweetsEl.dataset), tweetsEl);
 }
+
+const tweetFeedEl  = document.getElementById("tweetme-2-feed")
+if (tweetFeedEl) {
+    ReactDOM.render(e(FeedComponent,tweetFeedEl.dataset), tweetFeedEl);
+}
+
+const userProfileBadgeElements = document.querySelectorAll(".tweetme-2-profile-badge")
+
+userProfileBadgeElements.forEach(container=> {
+    ReactDOM.render(
+        e(ProfileBadgeComponent, container.dataset), 
+        container);
+})
+
 const tweetDetailElements=document.querySelectorAll(".tweetme-detail")
 
 tweetDetailElements.forEach(container=>{

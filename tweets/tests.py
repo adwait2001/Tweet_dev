@@ -24,6 +24,10 @@ class TweetTestCase(TestCase):
             user=self.user)
         self.assertEqual(tweet_obj.id, 4)
         self.assertEqual(tweet_obj.user, self.user)
+        
+    def test_tweets_related_name(self):
+        user = self.user
+        self.assertEqual(user.tweets.count(), 2)
 
     def get_client(self):
         client = APIClient()

@@ -1,0 +1,225 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Tweet Me</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        {% if user.is_authenticated %}
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/"> HELLO {{user.username}}</a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profiles/edit">Edit</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+<div class="sidebar-container">
+  <div class="sidebar-logo">
+    <img src="https://adwaitshareit.s3.ap-south-1.amazonaws.com/images/undraw_collab_-8-oes.svg" width="230px" height="230px">
+    <!-- <img src="https://adwaitshareit.s3.ap-south-1.amazonaws.com/images/Free_Sample_By_Wix.jpg" width="150px" height="100px"> -->
+    <h5 class="text">Social Media Platform For Developers</h5>
+  </div>
+  
+  <ul class="sidebar-navigation">
+    <li>
+      <a href="/">
+        <i class="fa fa-home" aria-hidden="true"></i> Homepage
+      </a>
+    </li>
+    {% if user.is_authenticated %}
+    <li>
+      <a href="/logout">
+        <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+      </a>
+    </li>
+    <li>
+      <a href="/profiles/edit">
+        <i class="fa fa-users" aria-hidden="true"></i> Edit Profile
+      </a>
+    </li>
+    <li>
+      <a href="/profiles/{{user.username}}">
+        <i class="fa fa-user" aria-hidden="true"></i> View Profile
+      </a>
+    </li>
+    {% else %}
+    <li>
+      <a href="/login">
+        <i class="fa fa-clipboard-check" aria-hidden="true"></i> Login
+      </a>
+    </li>
+    <li>
+      <a href="/register">
+        <i class="fa fa-registered" aria-hidden="true"></i> Register
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+  <div class="profile_bottom">
+ <div class="one">
+   <img class="avatar" src="https://adwaitshareit.s3.amazonaws.com/{{user.profile.image}}">
+ </div>
+ <div class="two">
+  <h5>{{user.first_name}}  {{user.last_name}}</h5>
+   <h6 class="subtitle">@{{user.username}}</h6>
+ </div>
+  </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Zilla+Slab:wght@300&display=swap');
+    *{
+      font-family: 'Oswald', sans-serif;
+    }
+  .sidebar-container {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-left: 60px;
+    color: #fff;
+    border-right: 1px solid #2F3336;
+  }
+  
+  .content-container {
+    padding-top: 20px;
+
+  }
+  
+  .sidebar-logo {
+    padding: 10px 15px 10px 30px;
+    font-size: 20px;
+    border-bottom: 1px solid #2F3336;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidebar-navigation {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    border-bottom: 1px solid #2F3336;
+    padding-bottom: 20px;
+  }
+  
+  .sidebar-navigation li {
+    background-color: transparent;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+    padding-left: 30%;
+    font-size: larger;
+  }
+  
+  .sidebar-navigation li a {
+    padding: 10px 15px 10px 30px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .sidebar-navigation li .fa {
+    margin-right: 10px;
+  }
+  
+  .sidebar-navigation li a:active,
+  .sidebar-navigation li a:hover,
+  .sidebar-navigation li a:focus {
+    text-decoration: none;
+    outline: none;
+  }
+  
+  .sidebar-navigation li::before {
+    background-color: #2574A9;
+    position: absolute;
+    content: '';
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 3px;
+    z-index: -1;
+  }
+  
+  .sidebar-navigation li:hover::before {
+    width: 100%;
+  }
+  
+  .sidebar-navigation .header {
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: #151515;
+    padding: 10px 15px 10px 30px;
+  }
+  
+  .sidebar-navigation .header::before {
+    background-color: transparent;
+  }
+  
+  .content-container {
+    padding-left: 220px;
+  }
+
+  .text{
+    text-align: center;
+  }
+
+  .profile_bottom{
+    border-top: 1px solid #2F3336;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #2F3336;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  
+.avatar{
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.two{
+  margin-left: 12px;
+}
+
+.subtitle{
+  color: #535050;
+}
+
+</style>

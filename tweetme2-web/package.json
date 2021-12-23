@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.24.0",
     "cra-template": "1.0.3",
+    "devicon-react-svg": "^0.2.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-dropdown-select": "^4.8.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {

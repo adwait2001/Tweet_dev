@@ -2,10 +2,11 @@
 import React from 'react'
 
 import { TweetAction } from './lookup'
+import "./tweet.css"
 
 export function ActionBtn(props) {
     const { tweet, action ,didperformAction} = props
-    const className = props.className ? props.className : 'btn btn-primary btn-sm'
+    const className = props.className ? props.className : 'btn btn-outline-primary btn-sm button'
     const likes = tweet.likes ? tweet.likes : 0
     const actionDisplay = action.display ? action.display : 'Action'
   

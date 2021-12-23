@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
   <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -30,8 +31,10 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id='tweet-container'></div>
+  <div class="d-none" id='tweet-container'></div>
   <div id="tweetme-2" data-username="adwait" data-can-tweet="true"></div>
+  <div class='d-none tweetme-2-profile-badge' data-username="adwait"></div>
+  <div class="d-none" id="tweetme-2-feed"></div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

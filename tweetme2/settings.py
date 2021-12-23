@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'profiles',
     'tweets',
     'corsheaders',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -136,21 +137,38 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"static")
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR,"static")
+# ]
 
-STATIC_ROOT=os.path.join(BASE_DIR,"static-root")
+# STATIC_ROOT=os.path.join(BASE_DIR,"static-root")
 
 DEFAULT_AUTHENTICATION_CLASSES = [
     'rest_framework.authentication.SessionAuthentication',
 ]
 
-# if DEBUG:
-#     DEFAULT_AUTHENTICATION_CLASSES+=[
-#         'tweetme2.rest_api.dev.DevAuthentication'
-#     ]
+if DEBUG:
+    DEFAULT_AUTHENTICATION_CLASSES+=[
+        'tweetme2.rest_api.dev.DevAuthentication'
+    ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': DEFAULT_AUTHENTICATION_CLASSES,
 }
+
+
+
+AWS_ACCESS_KEY_ID = 'AKIA6AC7Z2W3M7H46M4P'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'adwaitshareit'
+AWS_S3_FILE_OVERWRITE = False
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
